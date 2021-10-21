@@ -33,7 +33,7 @@
               <a class="nav-link active" href="#About">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="#project">Picture</a>
+              <a class="nav-link" href="#project">Picture</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
@@ -171,5 +171,17 @@
     <!-- Footer Akhir -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzPov41bjwMTBJpyd7-m_CKE8UxdwZWwE1vmA7ktWimE9tKfkEm90q9KknIXZ8qtfcg/exec';
+      const form = document.forms['Submit-Form'];
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => console.log('Success!', response))
+          .catch((error) => console.error('Error!', error.message));
+      });
+    </script>
   </body>
 </html>
